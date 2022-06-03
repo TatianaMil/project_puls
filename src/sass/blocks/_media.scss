@@ -1,7 +1,12 @@
 @media (max-width: 1200px) {
+	.title {
+		&_left {
+			font-size: 32px;
+		}
+	}
 	.promo {
 		&__header {
-			font-size: 39px;
+			font-size: 42px;
 		}
 		&__subheader {
 			margin-top: 10px;
@@ -19,6 +24,10 @@
 			width: 230px;
 			height: 30px;
 			font-size: 15px;
+		}
+		&_submit {
+			width: 300px;
+			height: 30px;
 		}
 	}
 	.header {
@@ -83,11 +92,26 @@
 		&__text {
 			margin-top: 22px;
 			font-size: 13px;
-			
+
 		}
+	}
+	.consultation {
+		min-height: 610px;
+		padding: 80px 0 70px 30px;
 	}
 }
 @media (max-width: 767px) {
+	.button {
+		&_submit {
+			height: 35px;
+			font-size: 13px;
+		}
+	}
+	.title {
+		&_left {
+			font-size: 23px;
+		}
+	}
 	.header {
 		&__logo {
 			width: 140px;
@@ -134,10 +158,26 @@
 			margin-top: 15px;
 		}
 	}
+	.consultation {
+		min-height: 550px;
+	}
 }
 @media (max-width: 575px) {
+	.button {
+		&_submit {
+			width: 100%;
+		}
+	}
 	.title {
 		font-size: 22px;
+		&_left {
+			br {
+				display: none;
+			}
+			font-size: 19px;
+			line-height: 29px;
+			text-align: center;
+		}
 	}
 	.header {
 		&__official {
@@ -191,5 +231,16 @@
 		&__text {
 			font-size: 14px;
 		}
+	}
+	.consultation {
+		min-height: 465px;
+		padding: 35px 15px 50px 15px;
+		&__descr {
+			display: none;
+		}
+	}
+	.feed-form {
+		width: 100%;
+		margin-top: 58px;
 	}
 }
