@@ -1,4 +1,7 @@
 @media (max-width: 1200px) {
+	.container {
+		max-width: 800px;
+	}
 	.title {
 		&_left {
 			font-size: 32px;
@@ -11,6 +14,13 @@
 		&__subheader {
 			margin-top: 10px;
 			font-size: 20px;
+		}
+	}
+	.carousel {
+		.tns-item {
+			img {
+				width: 80%;
+			}
 		}
 	}
 }
@@ -98,6 +108,16 @@
 	.consultation {
 		min-height: 610px;
 		padding: 80px 0 70px 30px;
+	}
+	.carousel {
+		button {
+			display: none;
+		}
+		.tns-item {
+			img {
+				width: 70%;
+			}
+		}
 	}
 }
 @media (max-width: 767px) {
