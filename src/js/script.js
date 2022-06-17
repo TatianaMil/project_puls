@@ -66,4 +66,55 @@ $(document).ready(function(){
 
 	toggleSlide('.catalog-item__link');
 	toggleSlide('.catalog-item__back');
+
+	//modal
+	$('[data-modal=consultation]').on('click', function() {
+		$('.overlay, #consultation').fadeIn('slow');
+	});
+	
+	//закрытие окон крестиком
+	$('.modal__close').on('click', function() {
+		$('.overlay, #consultation, #order, #thanks').fadeOut('slow');
+	});
+
+	//для кнопки купить
+	$('.button_mini').each(function(i) {
+		$(this).on('click', function() {
+			$('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+			$('.overlay, #order').fadeIn('slow');
+		});
+	});
+
+	function valedeForms(form){
+		$(form).validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 2
+				},
+				phone: "required",
+				email: {
+					required: true,
+					email: true
+				}
+			},
+			messages: {
+				name: {
+					required: "Введите свое имя, пожалуйста",
+					minlength: jQuery.validator.format("Введите минимум {0} символа!")
+				  },
+				phone: "Введите свой номер телефона, пожалуйста",
+				email: {
+					required: "Введите свою почту, пожалуйста",
+					email: "Неверный адрес почты"
+				}
+			}
+		});
+	}
+
+	valedeForms('#consultation-form');
+	valedeForms('#consultation form');
+	valedeForms('#order form');
+
+	$('input[name=phone]').mask("+7 (999) 999-99-99");
 });
