@@ -5,9 +5,7 @@
 		width: 750px;
 		margin: 0 auto;
 	}
-	//for slick
-	// .slick-prev, .slick-next {
-
+	
 		//cледующая строчка для tiny slider
 	.prev, .next {
 		position: absolute;
@@ -30,5 +28,8 @@
 			display: block;
 			margin: 0 auto;
 		}
+	}
+	[data-action="stop"] {
+		display: none;
 	}
 }

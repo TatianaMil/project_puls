@@ -139,7 +139,7 @@
 				font-weight: 300;
 				color: #555555;
 				margin-top: 20px;
-				&:before {
+				&::before {
 					content: '';
 					position: absolute;
 					width: 5px;
@@ -148,6 +148,13 @@
 					left: -14px;
 					top: 7px;
 				}
+				&::marker {
+					content: '';
+					display: none;
+				}
+			}
+			ul {
+				padding: 0;
 			}
 		}
 		&__back {

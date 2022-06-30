@@ -2,22 +2,9 @@ const slider = tns({
 	container: '.carousel__inner',
 	items: 1,
 	slideBy: 'page',
-	autoplay: false,
+	autoplay: true,
 	controls: false,
-	nav: false,
-	responsive: {
-		640: {
-		edgePadding: 20,
-		gutter: 20,
-		items: 1,
-		},
-		700: {
-		gutter: 1
-		},
-		900: {
-		items: 1,
-		}
-	}
+	nav: false
 });
 
 document.querySelector('.prev').addEventListener('click', function () {
@@ -29,7 +16,7 @@ document.querySelector('.next').addEventListener('click', function () {
 });
 
 
-$(document).ready(function(){
+$(document).ready(function() {
 	$('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
 		$(this)
 			.addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
@@ -68,16 +55,19 @@ $(document).ready(function(){
 	toggleSlide('.catalog-item__back');
 
 	//modal
+
 	$('[data-modal=consultation]').on('click', function() {
 		$('.overlay, #consultation').fadeIn('slow');
 	});
 	
 	//закрытие окон крестиком
+
 	$('.modal__close').on('click', function() {
 		$('.overlay, #consultation, #order, #thanks').fadeOut('slow');
 	});
 
 	//для кнопки купить
+
 	$('.button_mini').each(function(i) {
 		$(this).on('click', function() {
 			$('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
@@ -85,7 +75,7 @@ $(document).ready(function(){
 		});
 	});
 
-	function valedeForms(form){
+	function validateForms(form){
 		$(form).validate({
 			rules: {
 				name: {
@@ -110,11 +100,11 @@ $(document).ready(function(){
 				}
 			}
 		});
-	}
+	};
 
-	valedeForms('#consultation-form');
-	valedeForms('#consultation form');
-	valedeForms('#order form');
+	validateForms('#consultation-form');
+	validateForms('#consultation form');
+	validateForms('#order form');
 
 	$('input[name=phone]').mask("+7 (999) 999-99-99");
 
@@ -138,4 +128,22 @@ $(document).ready(function(){
 		});
 		return false;
 	});
+
+	//smooth scroll and pageup
+
+	$(window).scroll(function() {
+		if($(this).scrollTop() > 1600) {
+			$('.pageup').fadeIn();
+		} else {
+			$('.pageup').fadeOut();
+		}
+	});
+
+	$("a[href='#up']").click(function() {
+		var _href = $(this).attr("href");
+		$("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+		return false;
+	});
+
+	new WOW().init();
 });
